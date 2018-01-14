@@ -7,13 +7,16 @@
  */
 
 namespace App;
-
+use Illuminate\Database\Eloquent\Model;
 /**
  * Description of Post
  *
  * @author Ashish
  */
-class Post {
+class Post extends Model{
+    protected $table = "post";
+    protected $fillable =['title', 'description'];
+//    
     //put your code here
     public function getPost($session){
         if(!$session->has("post")){
