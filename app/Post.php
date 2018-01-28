@@ -16,24 +16,27 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model{
     protected $table = "post";
     protected $fillable =['title', 'description'];
+    public function likes(){
+        return $this->hasMany('App\Like');
+    }
 //    
-    //put your code here
-    public function getPost($session){
-        if(!$session->has("post")){
-            $this->setPost($session);
-        }
-        $this->setPost($session);
-        return $session->get("post");
-    }
-    private function setPost($session){
-        $postArr = [
-            [
-                "title" => "this is my first post title", 
-                "description" => "First description of my post"],
-            [
-                "title" => "this is my second post title", 
-                "description" => "second description of my post"]
-            ];
-        $session->put("post", $postArr);
-    }
+//    //put your code here
+//    public function getPost($session){
+//        if(!$session->has("post")){
+//            $this->setPost($session);
+//        }
+//        $this->setPost($session);
+//        return $session->get("post");
+//    }
+//    private function setPost($session){
+//        $postArr = [
+//            [
+//                "title" => "this is my first post title", 
+//                "description" => "First description of my post"],
+//            [
+//                "title" => "this is my second post title", 
+//                "description" => "second description of my post"]
+//            ];
+//        $session->put("post", $postArr);
+//    }
 }

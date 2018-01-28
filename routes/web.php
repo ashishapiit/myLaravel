@@ -12,6 +12,27 @@ use Illuminate\Http\Request;
   | contains the "web" middleware group. Now create something great!
   |
  */
+
+
+Route::group(["prefix"=>'post'],function(){
+    Route::get('/','PostController@indexAction');
+    Route::get('create','PostController@createPost')->name('post.create');
+    Route::post('create','PostController@registerPost')->name('post.register');
+    Route::get('delete/{id}','PostController@deletePost')->name('post.delete');
+    Route::get('update/{id}',[
+        'uses' => 'PostController@updatePost',
+        'as' => 'post.update'
+    ]);
+    Route::post('update/{id}',[
+        'uses' => 'PostController@editPost',
+        'as' => 'post.edit'
+    ]);
+    
+    Route::get("/like/{id}",'PostController@registerLike')->name('post.like');
+   
+    
+});
+
 Route::get('/add', [
     'uses' => 'PostController@indexAction',
     'as' => 'post.add'
