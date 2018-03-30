@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
   |
  */
 //Comment added
+//New comment
 
 Route::group(["prefix"=>'post'],function(){
     Route::get('/','PostController@indexAction');
