@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
   | contains the "web" middleware group. Now create something great!
   |
  */
-
+//Comment added
 
 Route::group(["prefix"=>'post'],function(){
     Route::get('/','PostController@indexAction');
